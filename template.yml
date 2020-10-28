@@ -1,0 +1,17 @@
+Resouces:
+
+EC2Instance:
+    Type: 'AWS::EC2::Intance'
+    Properties:
+        SecurityGroups:
+            - !Ref InstanceSecurityGroup
+        KeyName: jldacity2
+        ImageId: 'ami-068663a3c619dd892'
+    InstanceSecurityGroup:
+        Type: 'AWS::EC2::SecurityGroup'
+        Properties:
+            GroupDescription: Enable SSH access via port 22
+            SecurityGroupIngress:
+                - IpProtocol: tcp
+                FromPort: '22'
+                CidrIp: 0.0.0.0/0
